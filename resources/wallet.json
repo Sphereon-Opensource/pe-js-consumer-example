@@ -1,0 +1,17 @@
+{
+  "wallet": {
+    "data": {
+      "holder": {
+        "dids": [
+          {
+            "did": "did:factom:ASDIAIOQ&YQRUYOIER",
+            "other_attribtutes": ""
+          }
+        ]
+      },
+      "verfiable_credentials": [
+
+      ]
+    }
+  }
+}
