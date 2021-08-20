@@ -1,0 +1,35 @@
+{
+  "presentation_definition": {
+    "id": "31e2f0f1-6b70-411d-b239-56aed5321884",
+    "purpose": "To see Inspection details of Heavy Sour Dilbit..",
+    "input_descriptors": [
+      {
+        "id": "867bfe7a-5b91-46b2-9ba4-70028b8d9cc8",
+        "purpose": "To see Inspection details of Heavy Sour Dilbit..",
+        "schema": [
+          {
+            "uri": "http://neo-flow.com/credentials/e94a16cb-35b2-4301-9fb6-7af3d8fe7b81"
+          }
+        ],
+        "constraints": {
+          "fields": [
+            {
+              "path": [
+                "$.issuer.id",
+                "$.vc.issuer.id",
+                "$.iss.id",
+                "$.issuer",
+                "$.vc.issuer",
+                "$.iss"
+              ],
+              "filter": {
+                "type": "string",
+                "pattern": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

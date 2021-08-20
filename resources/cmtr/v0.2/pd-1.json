@@ -1,0 +1,41 @@
+{
+  "presentation_definition": {
+    "id": "31e2f0f1-6b70-411d-b239-56aed5321884",
+    "purpose": "To get the CMTR.",
+    "input_descriptors": [
+      {
+        "id": "867bfe7a-5b91-46b2-9ba4-70028b8d9cc8",
+        "purpose": "To get the CMTR.",
+        "schema": [
+          {
+            "uri": "http://localhost:3000/app/credential-did/did:elem:EiAsRb0lUsZbTgobLKOGV-CesWOcHrp6RaRiIH7Vxvmu0g"
+          }
+        ],
+        "constraints": {
+          "limit_disclosure": "required",
+          "fields": [
+            {
+              "path": [
+                "$.credentialSubject.cmtr",
+                "$.cmtr"
+              ],
+              "predicate": "required"
+            },
+            {
+              "path": [
+                "$.issuer",
+                "$.vc.issuer",
+                "$.iss"
+              ],
+              "filter": {
+                "type": "string",
+                "pattern": "did:key:z6MkqNJSEiVgztATfHBfE2bamdCxsmLm52tB2j8QfyE5Ssu1"
+              },
+              "predicate": "preferred"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
