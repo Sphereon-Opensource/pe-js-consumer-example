@@ -9,6 +9,11 @@ import { PresentationSubmission } from "@sphereon/pe-models";
 // const holderDID = wallet.data.holder.did[i];
 // const vcs = wallet.data.verifiable_credentials;
 
+/**
+ *
+ * All the examples here copied from the address: https://github.com/w3c-ccg/vc-examples/tree/master/docs
+ * All the presentationDefinition object are created by Sphereon.com based on the VCs above
+ */
 let pejs: PEJS = new PEJS(/*holderDID*/);
 
 console.log(pejs);
@@ -27,7 +32,7 @@ function getFileSimple(path: string) {
  */
 function checkChapiHttpEdu() {
   const presentationDefinition = getFileAsJson('./resources/chapi-http-edu/pd-1.json').presentation_definition;
-  const vpSimple = getFileAsJson('./resources/chapi-http-edu/vp.json');
+  const vpSimple = getFileAsJson('./resources/chapi-http-edu/sphereon-vp.json');
   const result: EvaluationResults = pejs.evaluate(presentationDefinition, new VP(vpSimple));
   const validated = pejs.validateSubmission(result.value)
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, vpSimple.verifiableCredential)
@@ -104,7 +109,6 @@ function checkCovid_19V1() {
 
 /**
  * this test is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/covid-19/v2
- * This VP is in fact a VC in our library
  */
 function checkCovid_19V2_jwt() {
   pejs = new PEJS();
@@ -151,7 +155,7 @@ function checkEdu() {
 function checkPrc() {
   pejs = new PEJS();
   const presentationDefinition = getFileAsJson('./resources/edu/pd-1.json').presentation_definition;
-  const vc:any = getFileAsJson("resources/edu/university-degree-verifiable-credential.json");
+  const vc:any = getFileAsJson("resources/edu/sphereon-university-degree-verifiable-credential.json");
   const result: EvaluationResults = pejs.evaluate(presentationDefinition, new VP(new Presentation(null, null, null, [vc], null)));
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, [vc])
   console.log(presentationSubmission);
