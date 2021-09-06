@@ -10,7 +10,7 @@
     "my-pe-models-consumer-script": "ts-node scripts/consumer-script.ts"
   },
   "dependencies": {
-    "@sphereon/pe-js": "^0.0.1"
+    "@sphereon/pe-js": "^0.1.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.22",
