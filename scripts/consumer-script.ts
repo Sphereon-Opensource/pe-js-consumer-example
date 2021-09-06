@@ -27,7 +27,7 @@ function getFileSimple(path: string) {
 }
 
 /**
- * this test is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/chapi-http-edu
+ * this example is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/chapi-http-edu
  * We've changed the verifiableCredential Object to be a list instead of a single entity because of https://identity.foundation/presentation-exchange/#presentation-submissions
  */
 function checkChapiHttpEdu() {
@@ -36,24 +36,24 @@ function checkChapiHttpEdu() {
   const result: EvaluationResults = pejs.evaluate(presentationDefinition, new VP(vpSimple));
   const validated = pejs.validateSubmission(result.value)
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, vpSimple.verifiableCredential)
-  console.log("result: ", result);
-  console.log("validated:", validated);
-  console.log("presentationSubmission:", presentationSubmission);
+  console.log("result: ", JSON.stringify(result, null, 2));
+  console.log("validated:", JSON.stringify(validated, null, 2));
+  console.log("presentationSubmission:", JSON.stringify(presentationSubmission, null, 2));
 }
 
 /**
- * this test is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/chapi-http-edu
+ * this example is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/chapi-http-edu
  * We've changed the verifiableCredential Object to be a list instead of a single entity because of https://identity.foundation/presentation-exchange/#presentation-submissions
  */
  function checkChapiHttpEdu_selectFrom() {
   const presentationDefinition = getFileAsJson('./resources/chapi-http-edu/pd-1.json').presentation_definition;
   const vpSimple = getFileAsJson('./resources/chapi-http-edu/sphereon-vp.json');
   const result: EvaluationResults = pejs.selectFrom(presentationDefinition, vpSimple.verifiableCredential, null);
-  console.log("result: ", result);
+  console.log("result: ", JSON.stringify(result, null, 2));
 }
 
 /**
- * this test is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/cmtr/examples/v0.0
+ * this example is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/cmtr/examples/v0.0
  */
 function checkCmtrV0_0() {
   pejs = new PEJS();
@@ -61,12 +61,12 @@ function checkCmtrV0_0() {
   const vc = getFileAsJson('./resources/cmtr/v0.0/cmtr-credential-v0.0.json');
   const result: EvaluationResults = pejs.evaluate(presentationDefinition, new VP(new Presentation(null, null, null, [vc], null, null)));
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, [vc])
-  console.log(presentationSubmission);
-  console.log(result)
+  console.log(JSON.stringify(presentationSubmission, null, 2));
+  console.log(JSON.stringify(result, null, 2))
 }
 
 /**
- * this test is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/cmtr/examples/v0.1
+ * this example is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/cmtr/examples/v0.1
  */
 function checkCmtrV0_1() {
   pejs = new PEJS();
@@ -74,12 +74,12 @@ function checkCmtrV0_1() {
   const vc = getFileAsJson('./resources/cmtr/v0.1/cmtr-credential-v0.1.json');
   const result: EvaluationResults = pejs.evaluate(presentationDefinition, new VP(new Presentation(null, null, null, [vc], null, null)));
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, [vc])
-  console.log(presentationSubmission);
-  console.log(result)
+  console.log(JSON.stringify(presentationSubmission, null, 2));
+  console.log(JSON.stringify(result, null, 2))
 }
 
 /**
- * this test is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/cmtr/examples/v0.1
+ * this example is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/cmtr/examples/v0.1
  * Here we only get a field from the report
  */
 function checkCmtrV0_1_limited() {
@@ -88,12 +88,12 @@ function checkCmtrV0_1_limited() {
   const vc = getFileAsJson('./resources/cmtr/v0.1/cmtr-credential-v0.1.json');
   const result: EvaluationResults = pejs.evaluate(presentationDefinition, new VP(new Presentation(null, null, null, [vc], null, null)));
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, [vc])
-  console.log(presentationSubmission);
-  console.log(result)
+  console.log(JSON.stringify(presentationSubmission, null, 2));
+  console.log(JSON.stringify(result, null, 2))
 }
 
 /**
- * this test is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/cmtr/examples/v0.1
+ * this example is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/cmtr/examples/v0.1
  */
 function checkCmtrV0_2() {
   pejs = new PEJS();
@@ -101,12 +101,12 @@ function checkCmtrV0_2() {
   const vp:Presentation = getFileAsJson('./resources/cmtr/v0.2/cmtr-verifiable-presentation-v0.2.json');
   const result: EvaluationResults = pejs.evaluate(presentationDefinition, new VP(vp));
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, vp.verifiableCredential)
-  console.log(presentationSubmission);
-  console.log(result)
+  console.log(JSON.stringify(presentationSubmission, null, 2));
+  console.log(JSON.stringify(result, null, 2))
 }
 
 /**
- * this test is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/covid-19/v1
+ * this example is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/covid-19/v1
  */
 function checkCovid_19V1() {
   pejs = new PEJS();
@@ -114,26 +114,26 @@ function checkCovid_19V1() {
   const vp:Presentation = getFileAsJson('./resources/covid-19/v1/verifiable-presentation.json');
   const result: EvaluationResults = pejs.evaluate(presentationDefinition, new VP(vp));
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, vp.verifiableCredential)
-  console.log(presentationSubmission);
-  console.log(result)
+  console.log(JSON.stringify(presentationSubmission, null, 2));
+  console.log(JSON.stringify(result, null, 2))
 }
 
 /**
- * this test is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/covid-19/v2
+ * this example is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/covid-19/v2
  */
 function checkCovid_19V2_jwt() {
   pejs = new PEJS();
   const presentationDefinition = getFileAsJson('./resources/covid-19/v2/pd-1.json').presentation_definition;
-  const jwtEncoded = getFileSimple('./resources/covid-19/v2/qSARS-CoV-2-Rapid-Test-Credential.jwt');
+  const jwtEncoded = getFileSimple('./resources/covid-19/v2/qSARS-CoV-2-Rapid-test-Credential.jwt');
   const vc:any = jwt_decode(jwtEncoded);
   const result: EvaluationResults = pejs.evaluate(presentationDefinition, new VP(new Presentation(null, null, null, [vc], null, null)));
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, [vc])
-  console.log(presentationSubmission);
-  console.log(result)
+  console.log(JSON.stringify(presentationSubmission, null, 2));
+  console.log(JSON.stringify(result, null, 2))
 }
 
 /**
- * this test is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/crude/examples/v1.0
+ * this example is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/crude/examples/v1.0
  */
 function checkCrude() {
   pejs = new PEJS();
@@ -141,12 +141,12 @@ function checkCrude() {
   const vc:any = getFileAsJson("resources/crude/v1.0/bill-of-lading-verifiable-credential-v1.0.json");
   const result: EvaluationResults = pejs.evaluate(presentationDefinition, new VP(new Presentation(null, null, null, [vc], null, null)));
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, [vc])
-  console.log(presentationSubmission);
-  console.log(result)
+  console.log(JSON.stringify(presentationSubmission, null, 2));
+  console.log(JSON.stringify(result, null, 2))
 }
 
 /**
- * this test is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/edu
+ * this example is based on https://github.com/w3c-ccg/vc-examples/tree/master/docs/edu
  */
 function checkEdu() {
   pejs = new PEJS();
@@ -154,12 +154,12 @@ function checkEdu() {
   const vc:any = getFileAsJson("resources/edu/sphereon-university-degree-verifiable-credential.json");
   const result: EvaluationResults = pejs.evaluate(presentationDefinition, new VP(new Presentation(null, null, null, [vc], null, null)));
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, [vc])
-  console.log(presentationSubmission);
-  console.log(result)
+  console.log(JSON.stringify(presentationSubmission, null, 2));
+  console.log(JSON.stringify(result, null, 2))
 }
 
 /**
- * this test is based on https://github.com/w3c-ccg/vc-examples/blob/master/docs/prc/danube
+ * this example is based on https://github.com/w3c-ccg/vc-examples/blob/master/docs/prc/danube
  * the VC in the prc.json file doesn't have a valid schema uri, therefore we added
  *   "credentialSchema": [{"id": "https://w3id.org/citizenship/v1"}]
  */
@@ -169,8 +169,8 @@ function checkPrc() {
   const vc:any = getFileAsJson("resources/edu/sphereon-university-degree-verifiable-credential.json");
   const result: EvaluationResults = pejs.evaluate(presentationDefinition, new VP(new Presentation(null, null, null, [vc], null, null)));
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, [vc])
-  console.log(presentationSubmission);
-  console.log(result)
+  console.log(JSON.stringify(presentationSubmission, null, 2));
+  console.log(JSON.stringify(result, null, 2))
 }
 
 checkChapiHttpEdu();
