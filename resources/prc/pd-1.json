@@ -8,7 +8,7 @@
         "purpose": "To see Inspection details of Heavy Sour Dilbit..",
         "schema": [
           {
-            "uri": "http://example.gov/credentials/3732"
+            "uri": "https://www.w3.org/2018/credentials/v1"
           }
         ],
         "constraints": {

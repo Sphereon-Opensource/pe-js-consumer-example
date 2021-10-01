@@ -1,7 +1,7 @@
 // This can be a wallet project
 // This can also be a Verifier-Backend-Server side project
 
-import { EvaluationResults, PEJS, Presentation, VP } from "@sphereon/pe-js";
+import {EvaluationResults, PEJS, Presentation, SelectResults, VP} from "@sphereon/pe-js";
 import jwt_decode from "jwt-decode";
 import fs from "fs";
 import { PresentationSubmission } from "@sphereon/pe-models";
@@ -173,6 +173,18 @@ function checkPrc() {
   console.log(JSON.stringify(result, null, 2))
 }
 
+function checkSelectFrom() {
+  console.log("checkSelectFrom");
+  pejs = new PEJS();
+  const pd = getFileAsJson('./resources/smithbk/pd.json');
+  const vc: any = getFileAsJson("resources/smithbk/vCs.json");
+  const selectResults: SelectResults = pejs.selectFrom(pd, [vc], "did:example:b34ca6cd37bbf23");
+
+  // TODO see how to use selectResults to get the credential
+
+  console.log(selectResults);
+}
+
 checkChapiHttpEdu();
 checkChapiHttpEdu_selectFrom();
 checkCmtrV0_0();
@@ -184,3 +196,4 @@ checkCovid_19V2_jwt();
 checkCrude();
 checkEdu();
 checkPrc();
+checkSelectFrom();

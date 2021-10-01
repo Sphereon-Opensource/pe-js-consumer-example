@@ -959,10 +959,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@sphereon/pe-js@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@sphereon/pe-js/-/pe-js-0.2.2.tgz#df223746b5622440ea50a7018370da235fe06498"
-  integrity sha512-dH5num2uk7zAbNKxz+f3wfn9scP580n++uo9Y8gWTYkzS4tu2H/Uyp3odCRt6yf6Bu/Ic3FZpiUw1lnTG/Oa5g==
+"@sphereon/pe-js@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@sphereon/pe-js/-/pe-js-0.2.3.tgz#8c87c955f8d45b3ec51f89c60f2465607a186a29"
+  integrity sha512-4qetvB8/7bhQej2tPXfLDTbXxdoyTN/lTnnXepnUe+CD/Jpvi6i+JRAv3WZ2WU9tJc/Ev1x4+bJ4/iscDTxpsw==
   dependencies:
     "@sphereon/pe-models" "0.0.5"
     ajv "^8.6.3"
