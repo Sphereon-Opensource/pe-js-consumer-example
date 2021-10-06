@@ -8,7 +8,7 @@
         "purpose": "To see Inspection details of Heavy Sour Dilbit..",
         "schema": [
           {
-            "uri": "http://neo-flow.com/credentials/e94a16cb-35b2-4301-9fb6-7af3d8fe7b81"
+            "uri": "https://www.w3.org/2018/credentials/v1"
           }
         ],
         "constraints": {

@@ -8,7 +8,7 @@
         "purpose": "To get the CMTR.",
         "schema": [
           {
-            "uri": "http://localhost:3000/app/credential-did/did:elem:EiAsRb0lUsZbTgobLKOGV-CesWOcHrp6RaRiIH7Vxvmu0g"
+            "uri": "https://www.w3.org/2018/credentials/v1"
           }
         ],
         "constraints": {

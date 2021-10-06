@@ -8,7 +8,7 @@
         "purpose": "To get the chemical analysis composition results.",
         "schema": [
           {
-            "uri": "https://w3c-ccg.github.io/vc-json-schemas/example/cmtr/cmtr-verifiable-credential-schema-v0.0.json"
+            "uri": "https://www.w3.org/2018/credentials/v1"
           }
         ],
         "constraints": {
