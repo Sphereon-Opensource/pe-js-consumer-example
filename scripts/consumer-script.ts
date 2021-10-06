@@ -188,10 +188,10 @@ function checkSelectFrom() {
   console.log("checkSelectFrom");
   pejs = new PEJS();
   const pd = getFileAsJson('./resources/smithbk/pd.json');
-  const config: any = getFileAsJson("resources/smithbk/config.json");
+  const config: any = getFileAsJson("./resources/smithbk/config.json");
   const selectResults: SelectResults = pejs.selectFrom(pd, config.wallet.verfiable_credentials, config.wallet.owner.identities[0].did);
 
-  let limitinglyDisclosedVC: VerifiableCredential = jp.nodes(selectResults, selectResults.matches[0].matches[0]);
+  let limitinglyDisclosedVC: VerifiableCredential = jp.nodes({verifiableCredential: [config.wallet.verfiable_credentials[0]]}, selectResults.matches[0].matches[0]);
   let fullyDisclosedVC = config.wallet.verfiable_credentials
     .filter(
       (vc) =>

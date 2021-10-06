@@ -790,19 +790,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@sphereon/pe-js@C:\\\\dev\\\\workspaces\\\\ws1\\\\pe-js\\\\sphereon-pe-js-v0.2.5.tgz":
-  version "0.2.5"
-  resolved "C:\\\\dev\\\\workspaces\\\\ws1\\\\pe-js\\\\sphereon-pe-js-v0.2.5.tgz#4775274dc0e159a224a05fb7e5c7c94cc37ec4c1"
-  dependencies:
-    "@sphereon/pe-models" "0.0.5"
-    ajv "^8.6.3"
-    ajv-formats "^2.1.1"
-    jsonpath "^1.1.1"
-    nanoid "^3.1.25"
-
-"@sphereon/pe-js@file:../pe-js/sphereon-pe-js-v0.2.4.tgz":
+"@sphereon/pe-js@^0.2.4":
   version "0.2.4"
-  resolved "file:../pe-js/sphereon-pe-js-v0.2.4.tgz#341cfd43c028976c3a9e62174d5e99c26f65a3de"
+  resolved "https://registry.yarnpkg.com/@sphereon/pe-js/-/pe-js-0.2.4.tgz#1b496326cdbbea10d811ac9ddd60cdb61d431476"
+  integrity sha512-dvh+Gla0UtcpdhHEd6N3XlNTtpYXdOVQlpLSOm//UeCsmHunuBS9DHXxJ+sg75Peo/x+qtnUUr85gsKZl7bg3w==
   dependencies:
     "@sphereon/pe-models" "0.0.5"
     ajv "^8.6.3"
