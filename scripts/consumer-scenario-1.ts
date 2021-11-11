@@ -21,7 +21,7 @@ function checkScenario_1() {
     "@context": [],
     type: [],
     verifiableCredential: wallet.verifiableCredentials,
-    holder: undefined
+    holder: ''
   });
   const selectFromResult: SelectResults = holderPE.selectFrom(presentationDefinition, wallet.verifiableCredentials, [wallet.holder])
   const presentationSubmission: PresentationSubmission = holderPE.submissionFrom(presentationDefinition, wallet.verifiableCredentials)

@@ -5,6 +5,7 @@ import {EvaluationResults, PEJS, Presentation, SelectResults, VerifiableCredenti
 import jwt_decode from "jwt-decode";
 import fs from "fs";
 import { PresentationSubmission } from "@sphereon/pe-models";
+// @ts-ignore
 import jp from 'jsonpath';
 
 // const holderDID = wallet.data.holder.did[i];
@@ -35,10 +36,12 @@ function checkChapiHttpEdu() {
   const presentationDefinition = getFileAsJson('./resources/chapi-http-edu/pd-1.json').presentation_definition;
   const vpSimple = getFileAsJson('./resources/chapi-http-edu/sphereon-vp.json');
   const result: EvaluationResults = pejs.evaluate(presentationDefinition, vpSimple);
-  const validated = pejs.validateSubmission(result.value)
+  if (result.value) {
+    const validated = pejs.validateSubmission(result.value)
+    console.log("validated:", JSON.stringify(validated, null, 2));
+  }
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, vpSimple.verifiableCredential)
   console.log("result: ", JSON.stringify(result, null, 2));
-  console.log("validated:", JSON.stringify(validated, null, 2));
   console.log("presentationSubmission:", JSON.stringify(presentationSubmission, null, 2));
 }
 
@@ -50,7 +53,7 @@ function checkChapiHttpEdu_selectFrom() {
   console.log("checkChapiHttpEdu_selectFrom");
   const presentationDefinition = getFileAsJson('./resources/chapi-http-edu/pd-1.json').presentation_definition;
   const vpSimple:any = getFileAsJson('./resources/chapi-http-edu/sphereon-vp.json');
-  const result: EvaluationResults = pejs.selectFrom(presentationDefinition, vpSimple.verifiableCredential, null);
+  const result: EvaluationResults = pejs.selectFrom(presentationDefinition, vpSimple.verifiableCredential, []);
   console.log("result: ", JSON.stringify(result, null, 2));
 }
 
@@ -66,7 +69,7 @@ function checkCmtrV0_0() {
     '@context': [],
     type:[],
     verifiableCredential: [vc],
-    holder: undefined
+    holder: undefined as unknown as string
   });
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, [vc])
   console.log(JSON.stringify(presentationSubmission, null, 2));
@@ -85,7 +88,7 @@ function checkCmtrV0_1() {
     '@context': [],
     type:[],
     verifiableCredential: [vc],
-    holder: undefined
+    holder: undefined as unknown as string
   });
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, [vc])
   console.log(JSON.stringify(presentationSubmission, null, 2));
@@ -105,7 +108,7 @@ function checkCmtrV0_1_limited() {
     '@context': [],
     type:[],
     verifiableCredential: [vc],
-    holder: undefined
+    holder: undefined as unknown as string
   });
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, [vc])
   console.log(JSON.stringify(presentationSubmission, null, 2));
@@ -153,7 +156,7 @@ function checkCovid_19V2_jwt() {
     '@context': [],
     type:[],
     verifiableCredential: [vc],
-    holder: undefined
+    holder: undefined as unknown as string
   });
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, [vc])
   console.log(JSON.stringify(presentationSubmission, null, 2));
@@ -172,7 +175,7 @@ function checkCrude() {
     '@context': [],
     type:[],
     verifiableCredential: [vc],
-    holder: undefined
+    holder: undefined as unknown as string
   });
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, [vc])
   console.log(JSON.stringify(presentationSubmission, null, 2));
@@ -191,7 +194,7 @@ function checkEdu() {
     '@context': [],
     type:[],
     verifiableCredential: [vc],
-    holder: undefined
+    holder: undefined as unknown as string
   });
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, [vc])
   console.log(JSON.stringify(presentationSubmission, null, 2));
@@ -212,7 +215,7 @@ function checkPrc() {
     '@context': [],
     type:[],
     verifiableCredential: [vc],
-    holder: undefined
+    holder: undefined as unknown as string
   });
   const presentationSubmission: PresentationSubmission = pejs.submissionFrom(presentationDefinition, [vc])
   console.log(JSON.stringify(presentationSubmission, null, 2));
@@ -223,21 +226,23 @@ function checkSelectFrom() {
   console.log("checkSelectFrom");
   pejs = new PEJS();
   const pd = getFileAsJson('./resources/smithbk/pd.json');
-  const config: any = getFileAsJson("./resources/smithbk/config.json");
-  const selectResults: SelectResults = pejs.selectFrom(pd, config.wallet.verfiable_credentials, config.wallet.owner.identities[0].did);
+  const config: {"wallet": {"owner":{"identities": {"did": string, "other_attribtutes": string}[]}, "verifiable_credentials": VerifiableCredential[]}} = getFileAsJson("./resources/smithbk/config.json");
+  const selectResults: SelectResults = pejs.selectFrom(pd, config.wallet.verifiable_credentials, [config.wallet.owner.identities[0].did]);
 
-  let limitinglyDisclosedVC: { path: string | number, value: VerifiableCredential}[] =
-      jp.nodes(
-          config.wallet.verfiable_credentials,
-          selectResults.matches[0].matches[0].replace('.verifiableCredential', '')
-      );
-  let fullyDisclosedVC = config.wallet.verfiable_credentials
-    .filter(
-      (vc) =>
-        vc.id === limitinglyDisclosedVC[0].value.id
-    )[0];
+  if (selectResults?.matches) {
+    let limitinglyDisclosedVC: { path: string | number, value: VerifiableCredential }[] =
+        jp.nodes(
+            config.wallet.verifiable_credentials,
+            selectResults?.matches[0].matches[0].replace('.verifiableCredential', '')
+        );
+    let fullyDisclosedVC = config.wallet.verifiable_credentials
+        .filter(
+            (vc) =>
+                vc.id === limitinglyDisclosedVC[0].value.id
+        )[0];
 
-  console.log(fullyDisclosedVC);
+    console.log(fullyDisclosedVC);
+  }
 }
 
 checkChapiHttpEdu();

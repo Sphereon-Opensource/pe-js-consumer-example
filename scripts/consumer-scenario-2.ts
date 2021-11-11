@@ -16,7 +16,8 @@ import { Wallet } from "./Wallet";
 function checkScenario_2() {
   const wallet1: { holder: string; verifiableCredentials: VerifiableCredential[] } = new Wallet().getWallet();
   const wallet2: { holder: string; verifiableCredentials: VerifiableCredential[] } = new Wallet().getWallet();
-  wallet2.verifiableCredentials[2].credentialSubject.degree["name"] = "bachelor of applied science";
+  // @ts-ignore
+  wallet2.verifiableCredentials[2].credentialSubject["degree"]["name"] = "bachelor of applied science";
   const presentationDefinition = getPresentationDefinition();
   let holderPE: PEJS = new PEJS();
   const vcs = [...wallet1.verifiableCredentials, ...wallet2.verifiableCredentials];
@@ -24,13 +25,15 @@ function checkScenario_2() {
     "@context": [],
     type: [],
     verifiableCredential: vcs,
-    holder: undefined
+    holder: undefined as unknown as string
   });
-  const selectFromResult: SelectResults = holderPE.selectFrom(presentationDefinition, vcs, [wallet1.holder])
-  const presentationSubmission: PresentationSubmission = holderPE.submissionFrom(presentationDefinition, selectFromResult.verifiableCredentials);
   console.log("evaluateResult: ", JSON.stringify(evaluateResult, null, 2));
+  const selectFromResult: SelectResults = holderPE.selectFrom(presentationDefinition, vcs, [wallet1.holder])
   console.log("selectFromResult: ", JSON.stringify(selectFromResult, null, 2));
-  console.log("presentationSubmission:", JSON.stringify(presentationSubmission, null, 2));
+  if (selectFromResult.verifiableCredentials) {
+    const presentationSubmission: PresentationSubmission = holderPE.submissionFrom(presentationDefinition, selectFromResult.verifiableCredentials);
+    console.log("presentationSubmission:", JSON.stringify(presentationSubmission, null, 2));
+  }
 }
 
 function getPresentationDefinition(): PresentationDefinition {
