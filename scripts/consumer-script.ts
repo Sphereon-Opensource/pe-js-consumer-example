@@ -79,7 +79,7 @@ function checkChapiHttpEdu_selectFrom() {
   const vpSimple: VerifiablePresentation = getFileAsJson(
     "./resources/chapi-http-edu/sphereon-vp.json"
   );
-  const result: EvaluationResults = pejs.selectFrom(
+  const result: SelectResults = pejs.selectFrom(
     presentationDefinition,
     vpSimple.verifiableCredential,
     [wallet.holder],
@@ -344,7 +344,7 @@ function checkSelectFrom() {
   const config: any = getFileAsJson("./resources/smithbk/config.json");
   const selectResults: SelectResults = pejs.selectFrom(
     pd,
-    config.wallet.verfiable_credentials,
+    config.wallet.verifiable_credentials,
     config.wallet.owner.identities[0].did,
     [ProofType.BbsBlsSignatureProof2020]
   );
@@ -355,7 +355,7 @@ function checkSelectFrom() {
       value: VerifiableCredential;
     }[] = jp.nodes(
       config.wallet.verifiable_credentials,
-      selectResults?.matches[0].matches[0].replace(".verifiableCredential", "")
+      selectResults?.matches[0].vc_path[0].replace(".verifiableCredential", "")
     );
     const fullyDisclosedVC = config.wallet.verifiable_credentials.filter(
       (vc: VerifiableCredential) => vc.id === limitinglyDisclosedVC[0].value.id

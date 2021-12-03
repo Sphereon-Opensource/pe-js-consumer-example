@@ -53,7 +53,7 @@ function checkScenario_2() {
   );
   const presentation: Presentation = holderPE.presentationFrom(
     presentationDefinition,
-    selectFromResult.selectableVerifiableCredentials as VerifiableCredential[],
+    selectFromResult.verifiableCredential as VerifiableCredential[],
     wallet1.holder
   );
   console.log("evaluateResult: ", JSON.stringify(evaluateResult, null, 2));
