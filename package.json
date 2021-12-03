@@ -22,7 +22,7 @@
     "my-consumer-scenario-script-2": "ts-node scripts/consumer-scenario-2.ts"
   },
   "dependencies": {
-    "@sphereon/pe-js": "^0.5.0",
+    "@sphereon/pe-js": "^0.5.1",
     "@types/jsonpath": "0.2.0"
   },
   "devDependencies": {

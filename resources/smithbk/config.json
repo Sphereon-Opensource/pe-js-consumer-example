@@ -42,8 +42,8 @@
         "proof": {
           "created": "2021-09-21T19:18:08Z",
           "proofPurpose": "assertionMethod",
-          "proofValue": "z22TFxZwpiT3B7TEKTZNyRzYbf6GfrXo7Xv35nyJTH6xWkvQAAiRCdnjAg4tRA5qB3bA9zZ726CthFUQf8Y8f3p1R",
-          "type": "Ed25519Signature2020",
+          "proofValue": "updatedProof",
+          "type": "BbsBlsSignatureProof2020",
           "verificationMethod": "did:key:z6MkuDyqwjCVhFFQEZdS5utguwYD2KRig2PEb9qbfP9iqwn9#key-1"
         },
         "type": [
