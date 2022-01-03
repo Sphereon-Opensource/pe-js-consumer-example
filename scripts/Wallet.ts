@@ -1,9 +1,9 @@
-import { VerifiableCredential } from "@sphereon/pe-js";
+import {IVerifiableCredential} from "@sphereon/pex";
 
 export class Wallet {
   getWallet(degreeNameOption: number): {
     holder: string;
-    verifiableCredentials: VerifiableCredential[];
+    verifiableCredentials: IVerifiableCredential[];
   } {
     return {
       holder: "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",

@@ -803,21 +803,21 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@sphereon/pe-js@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@sphereon/pe-js/-/pe-js-0.5.1.tgz#37feef3cd29d3595319f1f9fe91d7b6e643a15d3"
-  integrity sha512-dFr5LJ5VjnHJBYuEmHNoCMs1dyzqisbwdUl9HW5avQO+G1KvzfPGwOPl5b30+eq/40USXimJZvVrRit34tSVXA==
+"@sphereon/pex-models@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@sphereon/pex-models/-/pex-models-1.1.0.tgz#716898344fd07400bbffaa0c34a1f7ecdda14166"
+  integrity sha512-kMslWspdqwuXGBFxOPXTAK8HlIHycBR/locYHMlYmyvdnau6bp40JXk2zviBRVOPfe8N3Dv2p5IPAjMk3pT77A==
+
+"@sphereon/pex@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@sphereon/pex/-/pex-0.6.2.tgz#fd84da8ae826dda0b7846de6fba2a7d147e7ad5a"
+  integrity sha512-2D89H54L+g9kS5t2y2WGEB1s7aOQZCMXQ6ZAof9dPZU98WAWXbZ2mbVXVIX86CinI3cSoXya9poWoPdk39BYaA==
   dependencies:
-    "@sphereon/pe-models" "0.0.5"
-    ajv "^8.6.3"
+    "@sphereon/pex-models" "^1.1.0"
+    ajv "^8.8.2"
     ajv-formats "^2.1.1"
     jsonpath "^1.1.1"
-    nanoid "^3.1.25"
-
-"@sphereon/pe-models@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@sphereon/pe-models/-/pe-models-0.0.5.tgz#a096bc2ecde7190253d0e4d27538f017f75e7190"
-  integrity sha512-r7JFgAK9fhc1MN+qnON3NLqj0n5Lekz+K0CCvsSh/87YLe6iARiun1hvM3ZMd6Mbe1ukGDMTnwRauUgl8xUOFg==
+    nanoid "^3.1.30"
 
 "@tokenizer/token@^0.3.0":
   version "0.3.0"
@@ -926,7 +926,7 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
-"@types/jsonpath@0.2.0":
+"@types/jsonpath@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@types/jsonpath/-/jsonpath-0.2.0.tgz#13c62db22a34d9c411364fac79fd374d63445aa1"
   integrity sha512-v7qlPA0VpKUlEdhghbDqRoKMxFB3h3Ch688TApBJ6v+XLDdvWCGLJIYiPKGZnS6MAOie+IorCfNYVHOPIHSWwQ==
@@ -1113,7 +1113,7 @@ ajv@^6.10.0, ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-ajv@^8.0.0, ajv@^8.0.1, ajv@^8.6.3:
+ajv@^8.0.0, ajv@^8.0.1, ajv@^8.8.2:
   version "8.8.2"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.8.2.tgz#01b4fef2007a28bf75f0b7fc009f62679de4abbb"
   integrity sha512-x9VuX+R/jcFj1DHo/fCp99esgGDWiHENrKxaCENuCxpoMCmAt/COCGVDwA7kleEpEzJjDnvh3yGoOuLu0Dtllw==
@@ -3517,7 +3517,7 @@ ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-nanoid@^3.1.25:
+nanoid@^3.1.30:
   version "3.1.30"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.30.tgz#63f93cc548d2a113dc5dfbc63bfa09e2b9b64362"
   integrity sha512-zJpuPDwOv8D2zq2WRoMe1HsfZthVewpel9CAvTfc/2mBD1uUT/agc5f7GHGWXlYkFvi1mVxe4IjvP2HNrop7nQ==

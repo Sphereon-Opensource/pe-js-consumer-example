@@ -3,13 +3,13 @@
 
 import {
   EvaluationResults,
-  Presentation,
+  IPresentation,
+  IVerifiableCredential,
   ProofType,
   SelectResults,
-  VerifiableCredential,
-} from "@sphereon/pe-js";
-import { PEJS } from "@sphereon/pe-js/dist/main/lib";
-import { PresentationDefinition } from "@sphereon/pe-models";
+} from "@sphereon/pex";
+import { PresentationDefinitionV1 } from "@sphereon/pex-models";
+import { PEX } from "@sphereon/pex/dist/main/lib";
 
 import { Wallet } from "./Wallet";
 
@@ -17,21 +17,21 @@ import { Wallet } from "./Wallet";
  * This scenario contains a flow in which Alice wants to prove to Bob that she has some kind of Credentials.
  * Alice has previously contacted Bob and therefore know what he's expecting.
  * It means that Bob has already sent her a PresentationDefinition object.
- * Alice's wallet sends all of her available credentials to PEJS to see which one is useful
+ * Alice's wallet sends all of her available credentials to PEX to see which one is useful
  * In the second example the PresentationDefinition object is a simple one. Bob is sending her a presentationDefinition with two InputDescriptors
  * Alice has two credential in her wallet that have the properties requested by Bob
  */
 function checkScenario_2() {
   const wallet1: {
     holder: string;
-    verifiableCredentials: VerifiableCredential[];
+    verifiableCredentials: IVerifiableCredential[];
   } = new Wallet().getWallet(0);
   const wallet2: {
     holder: string;
-    verifiableCredentials: VerifiableCredential[];
+    verifiableCredentials: IVerifiableCredential[];
   } = new Wallet().getWallet(1);
   const presentationDefinition = getPresentationDefinition();
-  const holderPE: PEJS = new PEJS();
+  const holderPE: PEX = new PEX();
   const vcs = [
     ...wallet1.verifiableCredentials,
     ...wallet2.verifiableCredentials,
@@ -51,9 +51,9 @@ function checkScenario_2() {
     [wallet1.holder],
     [ProofType.BbsBlsSignatureProof2020]
   );
-  const presentation: Presentation = holderPE.presentationFrom(
+  const presentation: IPresentation = holderPE.presentationFrom(
     presentationDefinition,
-    selectFromResult.verifiableCredential as VerifiableCredential[],
+    selectFromResult.verifiableCredential as IVerifiableCredential[],
     wallet1.holder
   );
   console.log("evaluateResult: ", JSON.stringify(evaluateResult, null, 2));
@@ -61,7 +61,7 @@ function checkScenario_2() {
   console.log("presentationSubmission:", JSON.stringify(presentation, null, 2));
 }
 
-function getPresentationDefinition(): PresentationDefinition {
+function getPresentationDefinition(): PresentationDefinitionV1 {
   return {
     id: "31e2f0f1-6b70-411d-b239-56aed5321884",
     purpose: "To check if you have a valid college degree.",

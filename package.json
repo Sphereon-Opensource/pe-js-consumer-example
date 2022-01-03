@@ -1,9 +1,9 @@
 {
-  "name": "@sphereon/pe-js-consumer-example",
+  "name": "@sphereon/pex-consumer-example",
   "version": "1.0.0",
   "description": "A Typescript usage example of the PE-JS implementation.",
   "main": "index.js",
-  "repository": "https://github.com/Sphereon-Opensource/pe-js.git",
+  "repository": "https://github.com/Sphereon-Opensource/pex.git",
   "license": "MIT",
   "scripts": {
     "build": "run-p build:*",
@@ -11,7 +11,7 @@
     "build:module": "tsc -p tsconfig.module.json",
 
     "clean": "rimraf dist build coverage",
-    "uninstall": "rimraf dist build coverage yarn.lock yarn-error.log sphereon-pe-js-selective-disclosure-**.tgz node_modules",
+    "uninstall": "rimraf dist build coverage yarn.lock yarn-error.log sphereon-pex-selective-disclosure-**.tgz node_modules",
 
     "fix": "run-s fix:*",
     "fix:prettier": "prettier \"scripts/**/*.ts\" --write",
@@ -22,8 +22,8 @@
     "my-consumer-scenario-script-2": "ts-node scripts/consumer-scenario-2.ts"
   },
   "dependencies": {
-    "@sphereon/pe-js": "^0.5.1",
-    "@types/jsonpath": "0.2.0"
+    "@sphereon/pex": "^0.6.2",
+    "@types/jsonpath": "^0.2.0"
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",

@@ -1,6 +1,6 @@
 ## PE-JS Consumer Examples
 
-This project is testing the **`pe-js`** library against the examples in [vc-examples](https://github.com/w3c-ccg/vc-examples). These examples are just made to show you how you can use the @sphereon/pe-js library. you can change our examples in `resources/*` folders to suit your needs.
+This project is testing the **`pex`** library against the examples in [vc-examples](https://github.com/w3c-ccg/vc-examples). These examples are just made to show you how you can use the @sphereon/pex library. you can change our examples in `resources/*` folders to suit your needs.
 ## How to run
 To run this project you need to first, resolve the dependencies:
 

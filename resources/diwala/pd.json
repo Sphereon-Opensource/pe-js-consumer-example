@@ -1,0 +1,35 @@
+{
+  "id": "32f54163-7166-48f1-93d8-ff217bdb0653",
+  "input_descriptors": [
+    {
+      "id": "diwala_contact_verification",
+      "name": "Diwala Contact Verification",
+      "purpose": "We need your contact information to be able to match you to the real world",
+      "constraints": {
+        "fields": [
+          {
+            "origNonWorkingPathToBeEscaped": [
+              "$..@context[1]"
+            ],
+            "path": [
+              "$..['@context'][1]"
+            ],
+            "filter": {
+              "type": "string",
+              "pattern": "https://www.w3.org/2018/credentials/examples/v1"
+            }
+          },
+          {
+            "path": [
+              "$.type[1]"
+            ],
+            "filter": {
+              "type": "string",
+              "pattern": "AlumniCredential"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
