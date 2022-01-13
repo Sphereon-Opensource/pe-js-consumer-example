@@ -1,4 +1,4 @@
-import {IVerifiableCredential} from "@sphereon/pex";
+import { IVerifiableCredential } from "@sphereon/pex";
 
 export class Wallet {
   getWallet(degreeNameOption: number): {
